@@ -919,7 +919,12 @@
       + row('Date-Wahl', lead.date_wahl
           + (lead.date_text ? ' — „' + lead.date_text + '"' : ''))
       + row('Voicenote vs Text', lead.comms)
-      + row('Frage zurück', lead.rueckfrage, true)
+      + '</div>';
+
+    // Reflexion
+    h += '<div class="modal-section"><h3>Reflexion</h3>'
+      + row('Frage ans Universum', lead.universe, true)
+      + row('Frage zurück an mich', lead.rueckfrage, true)
       + '</div>';
 
     // Message
