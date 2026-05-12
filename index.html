@@ -460,6 +460,171 @@
   .save-status { font-size: 0.78rem; color: var(--text-soft); }
   .save-status.ok { color: var(--green); }
   .save-status.err { color: var(--red); }
+
+  /* ===== TABS ===== */
+  .tabs {
+    display: flex; gap: 4px;
+    background: var(--milk);
+    border: 1px solid var(--line);
+    border-radius: 0.6rem;
+    padding: 3px;
+    margin-right: auto;
+    margin-left: 1.5rem;
+  }
+  .tab {
+    padding: 0.45rem 0.9rem;
+    border: none;
+    background: transparent;
+    color: var(--text-soft);
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 0.45rem;
+    transition: all .15s;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active { background: var(--white); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+
+  /* ===== QUIZ EDITOR ===== */
+  .quiz-editor { display: flex; flex-direction: column; gap: 1.1rem; }
+  .quiz-help {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+    border-radius: 0.6rem;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.82rem;
+    color: var(--brand);
+    line-height: 1.5;
+  }
+  .quiz-help code {
+    background: rgba(0,0,0,0.06);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+  }
+  .step-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 0.85rem;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .step-head {
+    padding: 0.85rem 1.1rem;
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--milk);
+    gap: 0.5rem;
+  }
+  .step-meta { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
+  .step-pos {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-soft);
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-variant-numeric: tabular-nums;
+  }
+  .step-key {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .step-type {
+    font-size: 0.7rem;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    background: var(--line);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .step-body { padding: 1.1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+  .step-body.single-col { grid-template-columns: 1fr; }
+  @media (max-width: 720px) { .step-body { grid-template-columns: 1fr; } }
+  .step-field { display: flex; flex-direction: column; }
+  .step-field.full { grid-column: 1 / -1; }
+  .step-field label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-soft);
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+  }
+  .step-field label .lang-tag {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.65rem;
+    margin-left: 0.4rem;
+  }
+  .step-field textarea, .step-field input {
+    width: 100%;
+    padding: 0.7rem 0.85rem;
+    border: 1.5px solid var(--line);
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 0.88rem;
+    background: var(--milk);
+    color: var(--text);
+    outline: none;
+    resize: vertical;
+    transition: border-color .2s;
+  }
+  .step-field textarea:focus, .step-field input:focus { border-color: var(--accent); background: var(--white); }
+  .step-field textarea.mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    min-height: 140px;
+  }
+  .step-field .ph {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 0.3rem;
+  }
+  .step-foot {
+    padding: 0.7rem 1.1rem;
+    border-top: 1px solid var(--line);
+    display: flex; align-items: center; gap: 0.65rem;
+    background: var(--milk);
+  }
+  .step-save-btn {
+    padding: 0.55rem 1rem;
+    border: none;
+    border-radius: 0.45rem;
+    background: var(--brand);
+    color: var(--white);
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .step-save-btn:hover { background: var(--brand-dark); }
+  .step-save-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .step-toggles { display: flex; gap: 0.85rem; margin-left: auto; align-items: center; }
+  .step-toggles label { font-size: 0.78rem; color: var(--text-soft); cursor: pointer; display: inline-flex; align-items: center; gap: 0.35rem; }
+  .step-toggles input[type=checkbox] { accent-color: var(--accent); cursor: pointer; }
+  .step-status {
+    font-size: 0.78rem;
+    color: var(--text-soft);
+    margin-left: 0.5rem;
+  }
+  .step-status.ok { color: var(--green); }
+  .step-status.err { color: var(--red); }
+  .step-updated {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-left: auto;
+    font-variant-numeric: tabular-nums;
+  }
 </style>
 </head>
 <body>
@@ -487,27 +652,42 @@
 <!-- DASHBOARD -->
 <div id="appWrap" style="display:none">
   <div class="topbar">
-    <h1>GF Applications</h1>
+    <h1>GF Admin</h1>
+    <nav class="tabs">
+      <button class="tab active" data-view="applications" onclick="setView('applications')">Bewerbungen</button>
+      <button class="tab" data-view="quiz" onclick="setView('quiz')">Quiz Editor</button>
+    </nav>
     <div class="right">
       <span id="userEmail"></span>
       <a class="signout" onclick="signOut()">Sign out</a>
     </div>
   </div>
 
-  <div class="page">
-    <div class="stats">
-      <div class="stat"><div class="stat-label">Total</div><div class="stat-value" id="statTotal">–</div></div>
-      <div class="stat"><div class="stat-label">Neu</div><div class="stat-value accent" id="statNew">–</div></div>
-      <div class="stat"><div class="stat-label">Diese Woche</div><div class="stat-value" id="statWeek">–</div></div>
-      <div class="stat"><div class="stat-label">Mit Voice/Video</div><div class="stat-value" id="statMedia">–</div></div>
-    </div>
-
-    <div class="table-card">
-      <div class="table-head-bar">
-        <div class="table-title">Applications</div>
-        <div class="table-count" id="tableCount">–</div>
+  <div id="mainView">
+    <div class="page">
+      <div class="stats">
+        <div class="stat"><div class="stat-label">Total</div><div class="stat-value" id="statTotal">–</div></div>
+        <div class="stat"><div class="stat-label">Neu</div><div class="stat-value accent" id="statNew">–</div></div>
+        <div class="stat"><div class="stat-label">Diese Woche</div><div class="stat-value" id="statWeek">–</div></div>
+        <div class="stat"><div class="stat-label">Mit Voice/Video</div><div class="stat-value" id="statMedia">–</div></div>
       </div>
-      <div id="tableBody" class="loading">Lade Daten...</div>
+
+      <div class="table-card">
+        <div class="table-head-bar">
+          <div class="table-title">Applications</div>
+          <div class="table-count" id="tableCount">–</div>
+        </div>
+        <div id="tableBody" class="loading">Lade Daten...</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="quizView" style="display:none">
+    <div class="page">
+      <div class="quiz-help">
+        <strong>Hinweis:</strong> Änderungen sind nach max. 60 Sek im Live-Quiz auf gf-application.com sichtbar. Sofort sehen geht via <code>https://gf-application.com/?refresh=1</code> (umgeht den sessionStorage-Cache).
+      </div>
+      <div class="quiz-editor" id="quizEditor" style="margin-top:1rem"><div class="loading" style="padding:3rem 1rem">Lade Quiz...</div></div>
     </div>
   </div>
 </div>
@@ -835,6 +1015,159 @@
     renderStats();
     renderTable();
   };
+
+  // ===== TABS =====
+  let currentView = 'applications';
+  let quizSteps = [];
+  window.setView = function(v){
+    currentView = v;
+    document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.view === v));
+    el('mainView').style.display = v === 'applications' ? 'block' : 'none';
+    el('quizView').style.display = v === 'quiz' ? 'block' : 'none';
+    if (v === 'quiz' && !quizSteps.length) loadQuizStepsAdmin();
+  };
+
+  // ===== QUIZ EDITOR =====
+  async function loadQuizStepsAdmin(){
+    const editor = el('quizEditor');
+    editor.innerHTML = '<div class="loading" style="padding:3rem 1rem">Lade Quiz...</div>';
+    const { data, error } = await sb
+      .from('gf_quiz_steps')
+      .select('*')
+      .order('position');
+    if (error) {
+      editor.innerHTML = '<div class="empty" style="color:var(--red);padding:3rem 1rem">Fehler: ' + escHtml(error.message) + '</div>';
+      return;
+    }
+    quizSteps = data || [];
+    renderQuizEditor();
+  }
+
+  function renderQuizEditor(){
+    if (!quizSteps.length) {
+      el('quizEditor').innerHTML = '<div class="empty">Keine Quiz-Steps. Migration durch?</div>';
+      return;
+    }
+    let h = '';
+    quizSteps.forEach(s => h += renderStepCard(s));
+    el('quizEditor').innerHTML = h;
+  }
+
+  function fmtUpdated(iso){
+    if(!iso) return '';
+    const tm = new Date(iso);
+    const diff = (Date.now() - tm.getTime()) / 1000;
+    if (diff < 60) return 'gerade gespeichert';
+    if (diff < 3600) return 'vor ' + Math.floor(diff/60) + ' min';
+    if (diff < 86400) return 'vor ' + Math.floor(diff/3600) + 'h';
+    return tm.toLocaleDateString('de-AT', { day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit' });
+  }
+
+  function renderStepCard(s){
+    const q = s.question || {};
+    const sub = s.subtitle || {};
+    const ph = s.placeholder || {};
+    const isText = s.step_type === 'text';
+    const hasOptions = !!s.options;
+    const hasFields = !!s.fields;
+
+    let h = '<div class="step-card" data-step-id="' + escHtml(s.id) + '">';
+    h += '<div class="step-head">'
+      + '<div class="step-meta">'
+      +   '<span class="step-pos">#' + s.position + '</span>'
+      +   '<span class="step-key">' + escHtml(s.step_key) + '</span>'
+      +   '<span class="step-type">' + escHtml(s.step_type) + '</span>'
+      + '</div>'
+      + (s.updated_at ? '<span class="step-updated">' + escHtml(fmtUpdated(s.updated_at)) + '</span>' : '')
+      + '</div>';
+
+    h += '<div class="step-body">';
+    h += stepField(s.id, 'question_de', 'Frage', 'DE', q.de || '', false, 2);
+    h += stepField(s.id, 'question_en', 'Frage', 'EN', q.en || '', false, 2);
+    h += stepField(s.id, 'subtitle_de', 'Subtitle', 'DE', sub.de || '', false, 2);
+    h += stepField(s.id, 'subtitle_en', 'Subtitle', 'EN', sub.en || '', false, 2);
+    if (isText) {
+      h += stepField(s.id, 'placeholder_de', 'Placeholder', 'DE', ph.de || '', false, 2);
+      h += stepField(s.id, 'placeholder_en', 'Placeholder', 'EN', ph.en || '', false, 2);
+    }
+    if (hasOptions) {
+      h += stepField(s.id, 'options', 'Optionen (JSON)', null, JSON.stringify(s.options, null, 2), true, 0, true);
+    }
+    if (hasFields) {
+      h += stepField(s.id, 'fields', 'Felder (JSON)', null, JSON.stringify(s.fields, null, 2), true, 0, true);
+    }
+    h += '</div>';
+
+    h += '<div class="step-foot">';
+    h += '<button class="step-save-btn" onclick="saveStep(\'' + s.id + '\')">Speichern</button>';
+    h += '<span class="step-status" id="status_' + s.id + '"></span>';
+    h += '<div class="step-toggles">';
+    if (isText) {
+      h += '<label><input type="checkbox" id="skipable_' + s.id + '"' + (s.skipable?' checked':'') + '> skipable</label>';
+    }
+    h += '<label><input type="checkbox" id="active_' + s.id + '"' + (s.is_active?' checked':'') + '> aktiv</label>';
+    h += '</div></div>';
+
+    h += '</div>';
+    return h;
+  }
+
+  function stepField(stepId, key, label, langTag, value, fullWidth, rows, mono){
+    const id = key + '_' + stepId;
+    return '<div class="step-field' + (fullWidth?' full':'') + '">'
+      + '<label>' + escHtml(label) + (langTag ? '<span class="lang-tag">' + langTag + '</span>' : '') + '</label>'
+      + '<textarea id="' + id + '" rows="' + (rows || 6) + '"' + (mono?' class="mono"':'') + '>' + escHtml(value) + '</textarea>'
+      + '</div>';
+  }
+
+  window.saveStep = async function(stepId){
+    const s = quizSteps.find(x => x.id === stepId);
+    if (!s) return;
+    const get = key => { const node = el(key + '_' + stepId); return node ? node.value : ''; };
+    const updates = {
+      question: { de: get('question_de'), en: get('question_en') },
+      subtitle: { de: get('subtitle_de'), en: get('subtitle_en') }
+    };
+    if (el('placeholder_de_' + stepId)) {
+      updates.placeholder = { de: get('placeholder_de'), en: get('placeholder_en') };
+    }
+    if (el('options_' + stepId)) {
+      try { updates.options = JSON.parse(get('options')); }
+      catch(e) { showStepStatus(stepId, 'JSON-Fehler in Optionen: ' + e.message, 'err'); return; }
+    }
+    if (el('fields_' + stepId)) {
+      try { updates.fields = JSON.parse(get('fields')); }
+      catch(e) { showStepStatus(stepId, 'JSON-Fehler in Feldern: ' + e.message, 'err'); return; }
+    }
+    if (el('skipable_' + stepId)) updates.skipable = el('skipable_' + stepId).checked;
+    if (el('active_' + stepId))   updates.is_active = el('active_' + stepId).checked;
+
+    showStepStatus(stepId, 'Speichere...', '');
+    const { data, error } = await sb
+      .from('gf_quiz_steps')
+      .update(updates)
+      .eq('id', stepId)
+      .select()
+      .single();
+    if (error) { showStepStatus(stepId, error.message, 'err'); return; }
+
+    Object.assign(s, data);
+    // Refresh just the updated-time chip
+    const card = document.querySelector('.step-card[data-step-id="' + stepId + '"]');
+    if (card) {
+      const u = card.querySelector('.step-updated');
+      if (u) u.textContent = fmtUpdated(data.updated_at);
+    }
+    showStepStatus(stepId, 'Gespeichert.', 'ok');
+    setTimeout(() => showStepStatus(stepId, '', ''), 3000);
+  };
+
+  function showStepStatus(stepId, msg, kind){
+    const node = el('status_' + stepId);
+    if (!node) return;
+    node.textContent = msg;
+    node.className = 'step-status' + (kind ? ' ' + kind : '');
+  }
 
   // Auth state listener (handles token refresh / signout in other tabs)
   sb.auth.onAuthStateChange((event, session) => {
